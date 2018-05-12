@@ -5,8 +5,8 @@ const CustomInput = props => {
   const { label, input, type, meta } = props;
   return (
     <div>
-      <label>{props.label}</label>
-      <input {...props.input} type={props.type} />
+      <label>{label}</label>
+      <input {...input} type={type} />
       {(meta.error && meta.touched) && (
           <div style={{color: 'red'}}>{meta.error}</div>
       )}
