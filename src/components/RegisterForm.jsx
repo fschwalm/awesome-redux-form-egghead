@@ -1,13 +1,14 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { CustomInput, CustomSelect } from "./Fields";
+import capitalize from "capitalize";
 import {
-    required,
-    minLength,
-    MaxLength,
-    matchesPassword,
-    asyncValidate
-} from '../validations';
+  required,
+  minLength,
+  MaxLength,
+  matchesPassword,
+  asyncValidate
+} from "../validations";
 
 class RegisterForm extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class RegisterForm extends React.Component {
           component={CustomInput}
           type="text"
           validate={[required]}
+          normalize={capitalize}
         />
         <Field
           name="surname"
@@ -69,7 +71,7 @@ class RegisterForm extends React.Component {
 RegisterForm = reduxForm({
   form: "register",
   asyncValidate,
-  asyncBlurFields: ['username']
+  asyncBlurFields: ["username"]
 })(RegisterForm);
 
 export default RegisterForm;
