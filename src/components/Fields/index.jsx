@@ -9,6 +9,9 @@ const CustomInput = props => {
       <input {...input} type={type} />
       {meta.error &&
         meta.touched && <div style={{ color: "red" }}>{meta.error}</div>}
+      {meta.asyncValidating && (
+          <p>Validating...</p>
+      )}
     </div>
   );
 };

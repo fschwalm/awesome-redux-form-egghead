@@ -2,11 +2,12 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { CustomInput, CustomSelect } from "./Fields";
 import {
-  required,
-  minLength,
-  MaxLength,
-  matchesPassword
-} from "../validations";
+    required,
+    minLength,
+    MaxLength,
+    matchesPassword,
+    asyncValidate
+} from '../validations';
 
 class RegisterForm extends React.Component {
   render() {
@@ -66,7 +67,9 @@ class RegisterForm extends React.Component {
 }
 
 RegisterForm = reduxForm({
-  form: "register"
+  form: "register",
+  asyncValidate,
+  asyncBlurFields: ['username']
 })(RegisterForm);
 
 export default RegisterForm;
