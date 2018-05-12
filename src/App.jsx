@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import RegisterForm from './components/RegisterForm';
 
-class App extends Component {
+class RegisterFormContainer extends React.Component {
+  submit = values => {
+    window.alert(JSON.stringify(values, null, 4))
+  }
+
   render() {
     return (
-      <div className="App">
-        <h1>Redux Form</h1>
-      </div>
+        <RegisterForm onSubmit={this.submit} />
     );
   }
 }
 
-export default App;
+export default RegisterFormContainer;
